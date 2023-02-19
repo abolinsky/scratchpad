@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 template<typename T, typename U = T>
 concept Number =
   requires(T x, U y) {   // Something with arithmetic operations and a zero
@@ -28,29 +27,29 @@ auto accumulate(Iter first, Iter last, Val res) -> Val {
 
 int main() {
   {
-  std::list a {4.f, 5.f, 6.f};
+  list a {4.f, 5.f, 6.f};
   auto res = accumulate(a.begin(), a.end(), 0);
-  std::cout << res << std::endl;
+  cout << res << endl;
   }
 
   /*
   {
-  std::unordered_map<std::string, int> a = {{"wow"s, 5}};
+  unordered_map<string, int> a = {{"wow"s, 5}};
   auto res = accumulate(a.begin(), a.end(), 0);
-  std::cout << res << std::endl;
+  cout << res << endl;
   }
   */
 
   {
   auto a {"a"s};
   auto res = accumulate(a.begin(), a.end(), 0);
-  std::cout << std::hex << std::showbase << res << std::endl;
+  cout << hex << showbase << res << endl;
   }
 
   {
-  std::vector a {4, 19, 3};
+  vector a {4, 19, 3};
   auto res = accumulate(a.begin(), a.end(), 0);
-  std::cout << std::dec << res << std::endl;
+  cout << dec << res << endl;
   }
 
   return 0;
